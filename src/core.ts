@@ -44,6 +44,7 @@ async function defaultParseResponse<T>(props: APIResponseProps): Promise<T> {
 
     // Note: there is an invariant here that isn't represented in the type system
     // that if you set `stream: true` the response type must also be `Stream<T>`
+    // return Stream.fromReadableStream(response, props.controller) as any;
     return Stream.fromSSEResponse(response, props.controller) as any;
   }
 
@@ -83,6 +84,7 @@ export class APIPromise<T> extends Promise<T> {
     private responsePromise: Promise<APIResponseProps>,
     private parseResponse: (props: APIResponseProps) => PromiseOrValue<T> = defaultParseResponse,
   ) {
+    console.log(responsePromise, 'responsePromise');
     super((resolve) => {
       // this is maybe a bit weird but this has to be a no-op to not implicitly
       // parse the response body; instead .then, .catch, .finally are overridden
@@ -180,7 +182,6 @@ export abstract class APIClient {
     this.maxRetries = validatePositiveInteger('maxRetries', maxRetries);
     this.timeout = validatePositiveInteger('timeout', timeout);
     this.httpAgent = httpAgent;
-
     this.fetch = overridenFetch ?? fetch;
   }
 
@@ -273,7 +274,7 @@ export abstract class APIClient {
     options: FinalRequestOptions<Req>,
   ): { req: RequestInit; url: string; timeout: number } {
     const { method, path, query, headers: headers = {} } = options;
-
+    console.log(path, 'hear path');
     const body =
       isMultipartBody(options.body) ? options.body.body
       : options.body ? JSON.stringify(options.body, null, 2)
@@ -373,9 +374,15 @@ export abstract class APIClient {
     if (retriesRemaining == null) {
       retriesRemaining = options.maxRetries ?? this.maxRetries;
     }
+    // let req = '',
+    //     url = '',
 
+    // if (options.isBaseModel) {
+    // }
+    console.log(options, 'options');
+    // options.path = '/v1/chat';
     const { req, url, timeout } = this.buildRequest(options);
-
+    // console.log(this.buildRequest(options), '解析后的options');
     await this.prepareRequest(req, { url, options });
 
     debug('request', url, options, req.headers);
@@ -403,6 +410,7 @@ export abstract class APIClient {
     const responseHeaders = createResponseHeaders(response.headers);
 
     if (!response.ok) {
+      console.log('请求没成功');
       if (retriesRemaining && this.shouldRetry(response)) {
         return this.retryRequest(options, retriesRemaining, responseHeaders);
       }
@@ -729,6 +737,8 @@ export type RequestOptions<Req extends {} = Record<string, unknown> | Readable> 
   headers?: Headers | undefined;
 
   maxRetries?: number;
+  isBaseModel?: boolean;
+
   stream?: boolean | undefined;
   timeout?: number;
   httpAgent?: Agent;
@@ -754,7 +764,7 @@ const requestOptionsKeys: KeysEnum<RequestOptions> = {
   httpAgent: true,
   signal: true,
   idempotencyKey: true,
-
+  isBaseModel: true,
   __binaryResponse: true,
 };
 

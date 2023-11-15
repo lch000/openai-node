@@ -139,6 +139,7 @@ export class OpenAI extends Core.APIClient {
 
   completions: API.Completions = new API.Completions(this);
   chat: API.Chat = new API.Chat(this);
+  baseChat: API.BaseChat = new API.BaseChat(this);
   edits: API.Edits = new API.Edits(this);
   embeddings: API.Embeddings = new API.Embeddings(this);
   files: API.Files = new API.Files(this);
@@ -225,6 +226,8 @@ export namespace OpenAI {
   export import CompletionCreateParamsStreaming = API.CompletionCreateParamsStreaming;
 
   export import Chat = API.Chat;
+  export import BaseChat = API.BaseChat;
+
   export import ChatCompletion = API.ChatCompletion;
   export import ChatCompletionAssistantMessageParam = API.ChatCompletionAssistantMessageParam;
   export import ChatCompletionChunk = API.ChatCompletionChunk;

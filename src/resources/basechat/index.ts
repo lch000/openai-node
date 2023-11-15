@@ -1,0 +1,31 @@
+// File generated from our OpenAPI spec by Stainless.
+
+export { BaseChat } from './basechat';
+export {
+  ChatCompletion as BaseChatCompletion,
+  ChatCompletionAssistantMessageParam as BaseBaseChatCompletionAssistantMessageParam,
+  ChatCompletionChunk as BaseChatCompletionChunk,
+  ChatCompletionContentPart as BaseChatCompletionContentPart,
+  ChatCompletionContentPartImage as BaseChatCompletionContentPartImage,
+  ChatCompletionContentPartText as BaseChatCompletionContentPartText,
+  ChatCompletionFunctionCallOption as BaseChatCompletionFunctionCallOption,
+  ChatCompletionFunctionMessageParam as BaseChatCompletionFunctionMessageParam,
+  ChatCompletionMessage as BaseChatCompletionMessage,
+  ChatCompletionMessageParam as BaseChatCompletionMessageParam,
+  ChatCompletionMessageToolCall as BaseChatCompletionMessageToolCall,
+  ChatCompletionNamedToolChoice as BaseChatCompletionNamedToolChoice,
+  ChatCompletionRole as BaseChatCompletionRole,
+  ChatCompletionSystemMessageParam as BaseChatCompletionSystemMessageParam,
+  ChatCompletionTool as BaseChatCompletionTool,
+  ChatCompletionToolChoiceOption as BaseChatCompletionToolChoiceOption,
+  ChatCompletionToolMessageParam as BaseChatCompletionToolMessageParam,
+  ChatCompletionUserMessageParam as BaseChatCompletionUserMessageParam,
+  CreateChatCompletionRequestMessage as BaseCreateChatCompletionRequestMessage,
+  ChatCompletionCreateParams as BaseChatCompletionCreateParams,
+  CompletionCreateParams as BaseCompletionCreateParams,
+  ChatCompletionCreateParamsNonStreaming as BaseChatCompletionCreateParamsNonStreaming,
+  CompletionCreateParamsNonStreaming as BaseCompletionCreateParamsNonStreaming,
+  ChatCompletionCreateParamsStreaming as BaseChatCompletionCreateParamsStreaming,
+  CompletionCreateParamsStreaming as BaseCompletionCreateParamsStreaming,
+  Completions as BaseCompletions,
+} from './completions';

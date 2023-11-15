@@ -530,8 +530,7 @@ function _typeTests() {
 }
 
 describe('resource completions', () => {
-  // TODO: re-enable
-  describe.skip('runFunctions with stream: false', () => {
+  describe('runFunctions with stream: false', () => {
     test('successful flow', async () => {
       const { fetch, handleRequest } = mockChatCompletionFetch();
 
@@ -1260,9 +1259,7 @@ describe('resource completions', () => {
       await listener.sanityCheck();
     });
   });
-
-  // TODO: re-enable
-  describe.skip('runFunctions with stream: true', () => {
+  describe('runFunctions with stream: true', () => {
     test('successful flow', async () => {
       const { fetch, handleRequest } = mockStreamingChatCompletionFetch();
 

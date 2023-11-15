@@ -1,6 +1,8 @@
 // File generated from our OpenAPI spec by Stainless.
-
+export const OKCR = '1234';
 export * from './chat/index';
+export * from './basechat/index';
+export { BaseChat } from './basechat/index';
 export * from './shared';
 export { Audio } from './audio/audio';
 export { Beta } from './beta/beta';

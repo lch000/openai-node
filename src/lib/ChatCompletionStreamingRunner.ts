@@ -43,12 +43,7 @@ export class ChatCompletionStreamingRunner
     options?: RunnerOptions,
   ): ChatCompletionStreamingRunner {
     const runner = new ChatCompletionStreamingRunner();
-    runner._run(() =>
-      runner._runFunctions(completions, params, {
-        ...options,
-        headers: { ...options?.headers, 'X-Stainless-Helper-Method': 'runFunctions' },
-      }),
-    );
+    runner._run(() => runner._runFunctions(completions, params, options));
     return runner;
   }
 
@@ -58,12 +53,7 @@ export class ChatCompletionStreamingRunner
     options?: RunnerOptions,
   ): ChatCompletionStreamingRunner {
     const runner = new ChatCompletionStreamingRunner();
-    runner._run(() =>
-      runner._runTools(completions, params, {
-        ...options,
-        headers: { ...options?.headers, 'X-Stainless-Helper-Method': 'runTools' },
-      }),
-    );
+    runner._run(() => runner._runTools(completions, params, options));
     return runner;
   }
 }
