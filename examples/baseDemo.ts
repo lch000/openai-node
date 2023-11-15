@@ -3,8 +3,6 @@
 import OpenAI from '../src';
 import { ChatCompletionStream } from '../src/lib/BaseChatCompletionStream';
 const openai = new OpenAI({
-  apiKey: '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', // defaults to process.env["OPENAI_API_KEY"]
-  baseURL: 'http://llm-engine-test.cf8025269a251437fa494ea5f9c8a924c.cn-beijing.alicontainer.com',
 });
 
 async function main() {

@@ -1,8 +1,13 @@
 {
+
+  a6da1cdac00797540f7bd3396cf149597335b4d57ac4d4e8e9adff551b216caa59a585d89c10fb517a3355ec1b4e66f5d66066299083f7d361aeb88d505e8c6a15cbda2a55adbe692f18a31584b862202e0542212ba6765b0296342fbd263d1259cee64e0a64a6bd12d850a773b05e87b44a515571992c593372be997e299251fb7db9f414a8443def7900427ec96cafa3e77a75233ac62069798e4b0bc8f4f6
+
+
+
   "name": "openailchgpt",
   "version": "1.0.0",
   "description": "Client library for the OpenAI API",
-  "author": "",
+  "author": "lch",
   "types": "dist/index.d.ts",
   "main": "dist/index.js",
   "type": "commonjs",

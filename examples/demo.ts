@@ -4,8 +4,7 @@ import OpenAI from '../src';
 import { ChatCompletionStream } from '../src/lib/ChatCompletionStream';
 
 const openai = new OpenAI({
-  apiKey: '96d6c41139d2efc5c25d7c0b93ad69a3', // defaults to process.env["OPENAI_API_KEY"]
-  baseURL: 'https://api.baichuan-ai.com/v1',
+  
 });
 async function main() {
   const stream = openai.beta.chat.completions.stream({
